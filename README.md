@@ -11,5 +11,7 @@ Below you'll find information about performing common tasks. The most recent ver
 - [react-navigation](https://reactnavigation.org/)
 - [redux](http://redux.js.org/)
 - [redux-persist](https://github.com/rt2zz/redux-persist)
+- [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+- [reselect](https://github.com/reactjs/reselect)
 - [native-base](http://docs.nativebase.io/)
-- [place holder images](http://lorempixel.com/)
+- [lorempixel.com/](http://lorempixel.com/)
