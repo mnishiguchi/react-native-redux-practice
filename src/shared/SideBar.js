@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StatusBar, StyleSheet } from 'react-native';
+import { Image, StatusBar, StyleSheet, View } from 'react-native';
 import { Container, Content, Text, List, ListItem } from 'native-base';
 
 const routeNames = ['Home', 'About', 'Contact'];
@@ -10,6 +10,7 @@ const navigate = (navigation, routeName) => () =>
 const SideBar = ({ navigation }) => {
   return (
     <Container>
+      <View style={styles.topSpacer} />
       <Content>
         <Image
           source={{ uri: 'http://lorempixel.com/400/300/abstract/' }}
@@ -37,6 +38,10 @@ const SideBar = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  topSpacer: {
+    height: 24,
+    backgroundColor: '#333'
+  },
   themeImage: {
     height: 300,
     alignSelf: 'stretch',

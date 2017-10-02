@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StatusBar, StyleSheet } from 'react-native';
 import {
   Header,
@@ -15,24 +16,50 @@ import {
   H1,
   H3
 } from 'native-base';
+import AppLayout from '../../AppLayout';
+import AppHeader from '../../shared/AppHeader';
 
-import Layout from '../../Layout';
-import HomeHeader from './HomeHeader';
-
+// Cards of all projects
 class HomeScreen extends React.Component {
   render() {
+    const { projects, navigation } = this.props;
+
     return (
-      <Layout>
-        <HomeHeader title="HomeScreen" {...this.props} />
+      <AppLayout>
+        <AppHeader title="HomeScreen" navigation={navigation} />
         <Content padder>
-          <H1>Home Screen</H1>
-          <Text>This app has a lot of cool features!</Text>
+          <H1>My projects</H1>
+          <Text>{projects.length} projects</Text>
+
+          {projects.map(project => {
+            return (
+              <Card key={project.uid}>
+                <CardItem header>
+                  <Text>{project.name}</Text>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                    <Text>{project.description}</Text>
+                  </Body>
+                </CardItem>
+                <CardItem footer>
+                  <Text>
+                    {project.value} {project.tag}
+                  </Text>
+                </CardItem>
+              </Card>
+            );
+          })}
         </Content>
-      </Layout>
+      </AppLayout>
     );
   }
 }
 
 const styles = StyleSheet.create({});
 
-export default HomeScreen;
+const mapStateToProps = state => ({
+  projects: Object.values(state.projects)
+});
+
+export default connect(mapStateToProps)(HomeScreen);

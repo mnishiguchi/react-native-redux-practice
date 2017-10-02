@@ -15,20 +15,21 @@ import {
   H1,
   H3
 } from 'native-base';
-
-import Layout from '../../Layout';
-import AboutHeader from './AboutHeader';
+import AppLayout from '../../AppLayout';
+import AppHeader from '../../shared/AppHeader';
 
 class AboutScreen extends React.Component {
   render() {
+    const { navigation } = this.props;
+
     return (
-      <Layout>
-        <AboutHeader title="AboutScreen" {...this.props} />
+      <AppLayout>
+        <AppHeader title="AboutScreen" navigation={navigation} hasBackButton />
         <Content padder>
           <H1>About Screen</H1>
           <Text>Masatoshi Nishiguchi</Text>
         </Content>
-      </Layout>
+      </AppLayout>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Container } from 'native-base';
 
-const Layout = props => (
+const AppLayout = props => (
   <Container>
     <View style={styles.topSpacer} />
     {props.children}
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Layout;
+export default AppLayout;

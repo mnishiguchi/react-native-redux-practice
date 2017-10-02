@@ -1,7 +1,7 @@
 import React from 'react';
 import { WebView } from 'react-native';
-import Layout from '../../Layout';
-import ContactHeader from './ContactHeader';
+import AppLayout from '../../AppLayout';
+import AppHeader from '../../shared/AppHeader';
 
 const defaultContactsiteUri = 'https://github.com/mnishiguchi';
 
@@ -11,10 +11,10 @@ const ContactScreen = ({ navigation }) => {
     defaultContactsiteUri;
 
   return (
-    <Layout>
-      <ContactHeader title={uri} navigation={navigation} />
+    <AppLayout>
+      <AppHeader title={uri} navigation={navigation} hasBackButton />
       <WebView source={{ uri: uri }} />
-    </Layout>
+    </AppLayout>
   );
 };
 

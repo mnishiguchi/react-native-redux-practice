@@ -1,10 +1,14 @@
 import React from 'react';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
-import navReducer from './reducers/navReducer';
+import nav from './reducers/nav';
+import projects from './reducers/projects';
+import selectedProject from './reducers/selectedProject';
 
 const reducer = combineReducers({
-  nav: navReducer
+  nav,
+  projects,
+  selectedProject,
 });
 
 // https://github.com/evgenyrodionov/redux-logger
