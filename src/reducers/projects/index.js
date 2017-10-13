@@ -8,7 +8,7 @@ import {
   UPDATE_PROJECT_HOUSEHOLD_ARTICLE,
   DELETE_PROJECT_HOUSEHOLD_ARTICLE,
 } from '../../constants';
-import projectReducer from './project';
+import projectReducer from './projectReducer';
 
 // Temporary fake data. We will use real data with redux-persist down the line.
 import projects from '../../data/projects';

@@ -5,7 +5,8 @@ import {
   CREATE_PROJECT_HOUSEHOLD_ARTICLE,
   UPDATE_PROJECT_HOUSEHOLD_ARTICLE,
   DELETE_PROJECT_HOUSEHOLD_ARTICLE,
-} from '../../constants';
+  SELECT_PROJECT,
+} from '../constants';
 
 export function createProject(project) {
   return {
@@ -51,5 +52,12 @@ export function deleteProjectHouseholdArticle(uid, householdArticleId) {
     type: DELETE_PROJECT_HOUSEHOLD_ARTICLE,
     uid,
     householdArticleId,
+  };
+}
+
+export function selectProject(uid) {
+  return {
+    type: SELECT_PROJECT,
+    uid,
   };
 }

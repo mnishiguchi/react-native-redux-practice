@@ -6,7 +6,7 @@ import {
   UPDATE_PROJECT_HOUSEHOLD_ARTICLE,
   DELETE_PROJECT_HOUSEHOLD_ARTICLE,
 } from '../../constants';
-import projectHouseholdArticlesReducer from './projectHouseholdArticles';
+import householdArticlesReducer from './householdArticlesReducer';
 
 const initialState = {
   uid: '',
@@ -36,7 +36,7 @@ const projectReducer = (state = initialState, action) => {
       const newHouseholdArticleId = shortid.generate();
       return {
         ...state,
-        householdArticles: projectHouseholdArticlesReducer(state.householdArticles, {
+        householdArticles: householdArticlesReducer(state.householdArticles, {
           uid: newHouseholdArticleId,
           householdArticle: action.householdArticle,
         }),
@@ -45,7 +45,7 @@ const projectReducer = (state = initialState, action) => {
     case UPDATE_PROJECT_HOUSEHOLD_ARTICLE:
       return {
         ...state,
-        householdArticles: projectHouseholdArticlesReducer(state.householdArticles, {
+        householdArticles: householdArticlesReducer(state.householdArticles, {
           uid: action.householdArticleId,
           householdArticle: action.householdArticle,
         }),
@@ -54,7 +54,7 @@ const projectReducer = (state = initialState, action) => {
     case DELETE_PROJECT_HOUSEHOLD_ARTICLE:
       return {
         ...state,
-        householdArticles: projectHouseholdArticlesReducer(state.householdArticles, {
+        householdArticles: householdArticlesReducer(state.householdArticles, {
           uid: action.householdArticleId,
         }),
       };

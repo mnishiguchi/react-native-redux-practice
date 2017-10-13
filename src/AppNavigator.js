@@ -1,19 +1,35 @@
 import React from 'react';
-import { DrawerNavigator } from 'react-navigation';
-import HomeScreen from './screens/HomeScreen';
-import AboutScreen from './screens/AboutScreen';
-import ContactScreen from './screens/ContactScreen';
-import SideBar from './shared/SideBar';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
+import HouseholdArticleForm from './screens/projects/HouseholdArticleForm';
+import ProjectForm from './screens/projects/ProjectForm';
+// import ContactScreen from './screens/ContactScreen';
+import ProjectScreen from './screens/projects/ProjectScreen';
+import SideBar from './layouts/SideBar';
 
-const AppNavigator = DrawerNavigator(
+// Register all the paths here.
+const AppNavigator = StackNavigator(
   {
-    Home: { screen: HomeScreen },
-    About: { screen: AboutScreen },
-    Contact: { screen: ContactScreen }
+    Drawer: {
+      screen: DrawerNavigator(
+        {
+          // Contact: { screen: ContactScreen },
+          ProjectScreen: { screen: ProjectScreen },
+        },
+        {
+          contentComponent: props => <SideBar {...props} />,
+        },
+      ),
+    },
+    HouseholdArticleForm: { screen: HouseholdArticleForm },
+    ProjectForm: { screen: ProjectForm },
+    ProjectScreen: { screen: ProjectScreen },
   },
   {
-    contentComponent: props => <SideBar {...props} />
-  }
+    headerMode: 'none',
+  },
 );
+
+// Specify the initial path here.
+AppNavigator.initialPath = 'ProjectScreen';
 
 export default AppNavigator;

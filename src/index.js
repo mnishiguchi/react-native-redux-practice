@@ -5,15 +5,16 @@ import { addNavigationHelpers } from 'react-navigation';
 import { Root } from 'native-base';
 import AppNavigator from './AppNavigator';
 
-class AppRoot extends React.Component {
+class AppContainer extends React.PureComponent {
   state = { isReady: false };
 
   // https://github.com/GeekyAnts/NativeBase#4-getting-started
+  // https://github.com/GeekyAnts/NativeBase/blob/031cd958b51a043480f3cc4b665a05640654545d/src/backward/Widgets/Icon.js
   async componentWillMount() {
     await Expo.Font.loadAsync({
       Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-      Roboto: require('native-base/Fonts/Roboto.ttf')
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
     });
 
     this.setState({ isReady: true });
@@ -26,7 +27,7 @@ class AppRoot extends React.Component {
     // https://reactnavigation.org/docs/guides/redux
     const navigation = addNavigationHelpers({
       dispatch: this.props.dispatch,
-      state: this.props.nav
+      state: this.props.nav,
     });
 
     return (
@@ -38,7 +39,7 @@ class AppRoot extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  nav: state.nav
+  nav: state.nav,
 });
 
-export default connect(mapStateToProps)(AppRoot);
+export default connect(mapStateToProps)(AppContainer);

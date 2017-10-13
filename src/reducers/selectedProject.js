@@ -2,7 +2,7 @@ import { SELECT_PROJECT } from '../constants';
 
 const initialState = '';
 
-// Currently selected project's uid
+// Currently selected project's uid.
 const selectedProject = (state = initialState, action) => {
   switch (action.type) {
     case SELECT_PROJECT:
